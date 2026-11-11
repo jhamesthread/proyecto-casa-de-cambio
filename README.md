@@ -59,6 +59,15 @@ Opción 2: descargar los tres archivos, dejarlos en la misma carpeta y abrir `in
 ### Clientes
 ![Clientes](Clientes.png)
 
+## Pruebas
+
+| Prueba | Resultado esperado |
+|---|---|
+| Registrar un cliente menor de edad | El sistema no lo deja registrar |
+| Cambio fuera del horario | El sistema muestra que solo atiende de 8:00 a.m. a 2:00 p.m. |
+| Cambio de más de 3.000 dólares | El sistema avisa que se pasa del límite |
+| Cédula no registrada | El sistema pide registrar al cliente primero |
+
 ## Integrantes
 
 - Jhames Ortiz Gutiérrez
