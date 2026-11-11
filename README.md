@@ -1,7 +1,9 @@
-# Casa de Cambio - Proyecto 
+# Casa de Cambio - Proyecto 4
 
-Proyecto de Diseño de Software II.
+Proyecto 4 de Diseño de Software II.
 Escuela Tecnológica Instituto Técnico Central.
+
+Página publicada: https://jhamesthread.github.io/proyecto-casa-de-cambio/
 
 ## Descripción
 
@@ -42,8 +44,9 @@ Los datos se guardan en el navegador (localStorage).
 
 ## Cómo usarlo
 
-1. Descargar los tres archivos y dejarlos en la misma carpeta.
-2. Abrir `index.html` en el navegador.
+Opción 1: entrar a la página publicada con el enlace de arriba.
+
+Opción 2: descargar los tres archivos, dejarlos en la misma carpeta y abrir `index.html` en el navegador.
 
 ## Capturas
 
