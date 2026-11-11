@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Casa de Cambio</title>
+    <meta name="description" content="Aplicación académica para simular cambios de divisas, gestionar clientes y consultar transacciones.">
+    <title>Casa de Cambio | Simulador de divisas</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-    <div class="menu">
+    <nav class="menu" aria-label="Navegación principal">
         <div class="titulo">
             <h2>Casa de Cambio</h2>
             <p>Proyecto 4<br>Escuela Tecnológica Instituto Técnico Central</p>
@@ -17,22 +18,22 @@
         <button id="bSimulador" class="activo" onclick="verPagina('pSimulador', 'bSimulador')">Simulador</button>
         <button id="bClientes" onclick="verPagina('pClientes', 'bClientes')">Clientes</button>
         <button id="bResumenes" onclick="verPagina('pResumenes', 'bResumenes')">Resúmenes</button>
-    </div>
+    </nav>
 
-    <div class="contenido">
+    <main class="contenido">
 
         <div id="pSimulador" class="pagina" style="display:block">
             <h1>Simulador y transacciones</h1>
 
             <div class="caja">
-                <h3>Tasa representativa del momento (COP)</h3>
+                <h3>Tasas de referencia (COP)</h3>
                 <div class="campos">
                     <div>
-                        <label>1 Dólar = ? pesos</label>
+                        <label for="tasaDolar">1 dólar = ¿cuántos pesos?</label>
                         <input type="number" id="tasaDolar" value="3183" step="0.01" oninput="mostrarTasas()">
                     </div>
                     <div>
-                        <label>1 Euro = ? pesos</label>
+                        <label for="tasaEuro">1 euro = ¿cuántos pesos?</label>
                         <input type="number" id="tasaEuro" value="3700" step="0.01" oninput="mostrarTasas()">
                     </div>
                 </div>
@@ -44,7 +45,7 @@
                 <h3>Operación</h3>
                 <div class="campos">
                     <div>
-                        <label>Tipo de cambio</label>
+                        <label for="tipo">Tipo de cambio</label>
                         <select id="tipo">
                             <option value="1">Pesos colombianos a Dólares</option>
                             <option value="2">Dólares a Pesos colombianos</option>
@@ -53,11 +54,11 @@
                         </select>
                     </div>
                     <div>
-                        <label>Monto a cambiar</label>
+                        <label for="monto">Monto a cambiar</label>
                         <input type="number" id="monto" min="0" step="0.01">
                     </div>
                     <div>
-                        <label>Cédula del cliente</label>
+                        <label for="cedulaOp">Cédula del cliente</label>
                         <input type="text" id="cedulaOp">
                     </div>
                 </div>
@@ -90,27 +91,27 @@
                 <h3>Datos del cliente</h3>
                 <div class="campos">
                     <div>
-                        <label>Cédula</label>
+                        <label for="cedula">Cédula</label>
                         <input type="text" id="cedula">
                     </div>
                     <div>
-                        <label>Nombre</label>
+                        <label for="nombre">Nombre</label>
                         <input type="text" id="nombre">
                     </div>
                     <div>
-                        <label>Fecha de nacimiento</label>
+                        <label for="nacimiento">Fecha de nacimiento</label>
                         <input type="date" id="nacimiento">
                     </div>
                     <div>
-                        <label>Trabajo</label>
+                        <label for="trabajo">Trabajo</label>
                         <input type="text" id="trabajo">
                     </div>
                     <div>
-                        <label>Dirección</label>
+                        <label for="direccion">Dirección</label>
                         <input type="text" id="direccion">
                     </div>
                     <div>
-                        <label>Celular (10 dígitos)</label>
+                        <label for="celular">Celular (10 dígitos)</label>
                         <input type="text" id="celular">
                     </div>
                 </div>
@@ -124,7 +125,7 @@
 
             <div class="caja">
                 <h3>Lista de clientes</h3>
-                <table id="tablaClientes"></table>
+                <div class="tabla-contenedor"><table id="tablaClientes"></table></div>
             </div>
         </div>
 
@@ -135,14 +136,14 @@
                 <h3>Resumen de transacciones por moneda</h3>
                 <div class="campos">
                     <div>
-                        <label>Tipo de resumen</label>
+                        <label for="tipoResumen">Tipo de resumen</label>
                         <select id="tipoResumen" onchange="cambiarPeriodo()">
                             <option value="diario">Diario</option>
                             <option value="mensual">Mensual</option>
                         </select>
                     </div>
                     <div>
-                        <label>Periodo</label>
+                        <label for="periodo">Periodo</label>
                         <input type="date" id="periodo">
                     </div>
                 </div>
@@ -152,11 +153,11 @@
             </div>
 
             <div class="caja">
-                <table id="tablaResumen"></table>
+                <div class="tabla-contenedor"><table id="tablaResumen"></table></div>
             </div>
         </div>
 
-    </div>
+    </main>
 
     <script src="js/script.js"></script>
 
