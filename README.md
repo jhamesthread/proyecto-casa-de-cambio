@@ -1,6 +1,6 @@
 # Casa de Cambio - Proyecto 
 
-Proyecto 4 de Diseño de Software II.
+Proyecto de Diseño de Software II.
 Escuela Tecnológica Instituto Técnico Central.
 
 ## Descripción
