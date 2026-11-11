@@ -1,7 +1,6 @@
 # Casa de Cambio - Proyecto 4
 
 Proyecto 4 de Diseño de Software II.
-Escuela Tecnológica Instituto Técnico Central.
 
 Página publicada: https://jhamesthread.github.io/proyecto-casa-de-cambio/
 
@@ -68,7 +67,3 @@ Opción 2: descargar los tres archivos, dejarlos en la misma carpeta y abrir `in
 | Cambio de más de 3.000 dólares | El sistema avisa que se pasa del límite |
 | Cédula no registrada | El sistema pide registrar al cliente primero |
 
-## Integrantes
-
-- Jhames Ortiz Gutiérrez
-- Alejandro Rodriguez Fontecha
