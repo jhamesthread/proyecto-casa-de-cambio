@@ -1,73 +1,115 @@
-# Casa de Cambio - Proyecto 4
+# 💱 Casa de Cambio | Proyecto 4
 
-Proyecto 4 de Diseño de Software II.
+Proyecto académico desarrollado para la asignatura **Diseño de Software II**.
 
-Página publicada: https://jhamesthread.github.io/proyecto-casa-de-cambio/
+🌐 **[Visitar página web](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
 
-## Descripción
+## 📌 Descripción
 
-Sistema web para un negocio tipo casa de cambio. Permite simular y hacer cambios de moneda entre pesos colombianos, dólares y euros, usando la tasa representativa del momento.
+Sistema web para un negocio tipo casa de cambio. Permite simular operaciones de cambio de moneda entre pesos colombianos (COP), dólares estadounidenses (USD) y euros (EUR), utilizando la tasa representativa del sistema.
 
-## Qué hace
+## 🚀 Funcionalidades
 
-- Simulador de cambio de moneda:
-  - Pesos a dólares
-  - Dólares a pesos
-  - Pesos a euros
-  - Euros a pesos
-- Registro de clientes (cédula, nombre, fecha de nacimiento, trabajo, dirección y celular).
-- Consulta de resúmenes diarios y mensuales de las transacciones por moneda.
+- **Simulador de cambio de moneda:**
+  - Pesos colombianos a dólares.
+  - Dólares a pesos colombianos.
+  - Pesos colombianos a euros.
+  - Euros a pesos colombianos.
+- **Registro de clientes:** cédula, nombre, fecha de nacimiento, trabajo, dirección y celular.
+- **Consulta de transacciones:** resúmenes diarios y mensuales por moneda.
+- **Almacenamiento local:** conserva los datos utilizando `localStorage`.
 
-## Restricciones
+## ⚙️ Restricciones del sistema
 
 - Solo se aceptan transacciones de personas mayores de edad.
-- Solo se hacen transacciones de lunes a viernes, de 8:00 a.m. a 2:00 p.m.
-- Límites de cambio por persona (en el día):
-  - 30.000.000 de pesos
-  - 3.000 dólares
-  - 2.000 euros
+- Las operaciones están habilitadas de lunes a viernes, de 8:00 a. m. a 2:00 p. m.
+- Límites de cambio por persona al día:
+  - $30.000.000 COP.
+  - $3.000 USD.
+  - €2.000 EUR.
 
-## Tecnologías
+## 🛠️ Tecnologías utilizadas
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - JavaScript
+- LocalStorage
 
-Los datos se guardan en el navegador (localStorage).
+## 📂 Estructura del proyecto
 
-## Archivos
+```text
+proyecto-casa-de-cambio/
+│
+├── index.html
+├── README.md
+│
+├── css/
+│   └── estilos.css
+│
+├── js/
+│   └── script.js
+│
+├── assets/
+│   └── imagenes/
+│       ├── Clientes.png
+│       ├── Simulador.png
+│       └── Transacciones.png
+│
+└── documentos/
+    └── Proyecto_4_Casa_de_Cambio.pdf
+```
 
-- `index.html`: estructura de la página
-- `estilos.css`: diseño
-- `script.js`: funcionamiento del sistema
+## 💻 Cómo ejecutar el proyecto
 
-## Cómo usarlo
+**Opción 1. Página publicada**
 
-Opción 1: entrar a la página publicada con el enlace de arriba.
+Ingresa directamente desde el siguiente enlace:
 
-Opción 2: descargar los tres archivos, dejarlos en la misma carpeta y abrir `index.html` en el navegador.
+[https://jhamesthread.github.io/proyecto-casa-de-cambio/](https://jhamesthread.github.io/proyecto-casa-de-cambio/)
 
-## Capturas
+**Opción 2. Ejecución local**
 
-### Simulador
-![Simulador](Simulador.png)
+1. Descarga o clona este repositorio.
+2. Conserva la estructura de carpetas del proyecto.
+3. Abre el archivo `index.html` en tu navegador.
 
-### Transacción realizada
-![Transacción](Transacciones.png)
+## 🖼️ Capturas del proyecto
 
-### Clientes
-![Clientes](Clientes.png)
+### Módulo de clientes
 
-## Informe
+![Módulo de clientes](assets/imagenes/Clientes.png)
 
-[Ver informe del Proyecto 4 (PDF)](Proyecto_4_Casa_de_Cambio.pdf)
+### Simulador de cambio
 
-## Pruebas
+![Simulador de cambio](assets/imagenes/Simulador.png)
+
+### Módulo de transacciones
+
+![Módulo de transacciones](assets/imagenes/Transacciones.png)
+
+## 📄 Documentación
+
+[Consultar documentación completa del proyecto (PDF)](documentos/Proyecto_4_Casa_de_Cambio.pdf)
+
+## 🧪 Pruebas realizadas
 
 | Prueba | Resultado esperado |
 |---|---|
-| Registrar un cliente menor de edad | El sistema no lo deja registrar |
-| Cambio fuera del horario | El sistema muestra que solo atiende de 8:00 a.m. a 2:00 p.m. |
-| Cambio de más de 3.000 dólares | El sistema avisa que se pasa del límite |
-| Cédula no registrada | El sistema pide registrar al cliente primero |
+| Registrar un cliente menor de edad | El sistema impide su registro. |
+| Realizar un cambio fuera del horario | El sistema informa el horario permitido. |
+| Cambiar más de 3.000 USD | El sistema advierte que se supera el límite. |
+| Ingresar una cédula no registrada | El sistema solicita registrar primero al cliente. |
 
+## ⚠️ Consideraciones
+
+- Los datos se almacenan localmente en el navegador mediante `localStorage`.
+- La información no se sincroniza automáticamente entre diferentes dispositivos o navegadores.
+- Si se eliminan los datos del navegador, se pueden perder los registros almacenados.
+
+## 👨‍💻 Autor
+
+Desarrollado por [@jhamesthread](https://github.com/jhamesthread).
+
+---
+
+**Proyecto académico | Diseño de Software II**
