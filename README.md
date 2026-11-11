@@ -1,8 +1,33 @@
 # 💱 Casa de Cambio | Proyecto 4
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)
+
+**Sistema web de gestión y simulación de cambio de divisas.**
+
 Proyecto académico desarrollado para la asignatura **Diseño de Software II**.
 
-🌐 **[Visitar página web](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
+🌐 **[Visitar aplicación web](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
+
+---
+
+## 📑 Tabla de contenidos
+
+- [Descripción](#-descripción)
+- [Funcionalidades](#-funcionalidades)
+- [Restricciones del sistema](#️-restricciones-del-sistema)
+- [Tecnologías utilizadas](#️-tecnologías-utilizadas)
+- [Estructura del proyecto](#-estructura-del-proyecto)
+- [Cómo ejecutar el proyecto](#-cómo-ejecutar-el-proyecto)
+- [Capturas del proyecto](#️-capturas-del-proyecto)
+- [Documentación](#-documentación)
+- [Pruebas realizadas](#-pruebas-realizadas)
+- [Consideraciones](#️-consideraciones)
+- [Autor](#-autor)
+
+---
 
 ## 📌 Descripción
 
@@ -30,10 +55,12 @@ Sistema web para un negocio tipo casa de cambio. Permite simular operaciones de 
 
 ## 🛠️ Tecnologías utilizadas
 
-- HTML5
-- CSS3
-- JavaScript
-- LocalStorage
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura de la aplicación |
+| CSS3 | Diseño y estilos visuales |
+| JavaScript | Lógica y funcionalidades |
+| LocalStorage | Almacenamiento local de datos |
 
 ## 📂 Estructura del proyecto
 
@@ -65,7 +92,7 @@ proyecto-casa-de-cambio/
 
 Ingresa directamente desde el siguiente enlace:
 
-[https://jhamesthread.github.io/proyecto-casa-de-cambio/](https://jhamesthread.github.io/proyecto-casa-de-cambio/)
+[🌐 Abrir Casa de Cambio](https://jhamesthread.github.io/proyecto-casa-de-cambio/)
 
 **Opción 2. Ejecución local**
 
@@ -89,7 +116,9 @@ Ingresa directamente desde el siguiente enlace:
 
 ## 📄 Documentación
 
-[Consultar documentación completa del proyecto (PDF)](documentos/Proyecto_4_Casa_de_Cambio.pdf)
+Consulta la documentación completa del proyecto en el siguiente archivo:
+
+📘 **[Ver documentación del proyecto (PDF)](documentos/Proyecto_4_Casa_de_Cambio.pdf)**
 
 ## 🧪 Pruebas realizadas
 
