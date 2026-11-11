@@ -155,7 +155,7 @@ Algunos escenarios contemplados para comprobar las validaciones del sistema:
 - Los datos no se sincronizan entre dispositivos ni navegadores.
 - Borrar los datos del navegador puede eliminar los registros guardados por la aplicación.
 - Las tasas iniciales de COP/USD y COP/EUR son valores de ejemplo. Al disponer de conexión, la aplicación intenta consultar tasas de referencia desde una API externa.
-- Si la consulta externa falla, se conservan los valores de ejemplo. Por eso, las tasas deben verificarse y actualizarse antes de utilizar el simulador con valores reales.
+- Si la consulta externa falla, se conservan los valores que ya estén en los campos, que inicialmente son valores de ejemplo. Por eso, las tasas deben verificarse y actualizarse antes de utilizar el simulador con valores reales.
 - Las tasas consultadas son referencias de conversión y no deben interpretarse automáticamente como una tasa oficial o una cotización comercial garantizada.
 
 ## 👨‍💻 Autor
