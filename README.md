@@ -5,11 +5,11 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)
 
-**Sistema web de gestión y simulación de cambio de divisas.**
+**Aplicación web para simular operaciones de cambio de divisas y gestionar clientes y transacciones.**
 
-Proyecto académico desarrollado para la asignatura **Diseño de Software II**.
+Proyecto académico desarrollado para la asignatura **Diseño de Software II** de la Escuela Tecnológica Instituto Técnico Central.
 
-🌐 **[Visitar aplicación web](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
+🌐 **[Ver aplicación publicada](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
 
 ---
 
@@ -17,127 +17,150 @@ Proyecto académico desarrollado para la asignatura **Diseño de Software II**.
 
 - [Descripción](#-descripción)
 - [Funcionalidades](#-funcionalidades)
-- [Restricciones del sistema](#️-restricciones-del-sistema)
-- [Tecnologías utilizadas](#️-tecnologías-utilizadas)
+- [Reglas del negocio](#-reglas-del-negocio)
+- [Tecnologías](#️-tecnologías)
 - [Estructura del proyecto](#-estructura-del-proyecto)
-- [Cómo ejecutar el proyecto](#-cómo-ejecutar-el-proyecto)
-- [Capturas del proyecto](#️-capturas-del-proyecto)
+- [Ejecución](#-ejecución)
+- [Capturas](#-capturas)
 - [Documentación](#-documentación)
-- [Pruebas realizadas](#-pruebas-realizadas)
-- [Consideraciones](#️-consideraciones)
+- [Pruebas](#-pruebas)
+- [Almacenamiento y tasas](#️-almacenamiento-y-tasas)
 - [Autor](#-autor)
 
 ---
 
 ## 📌 Descripción
 
-Sistema web para un negocio tipo casa de cambio. Permite simular operaciones de cambio de moneda entre pesos colombianos (COP), dólares estadounidenses (USD) y euros (EUR), utilizando la tasa representativa del sistema.
+Casa de Cambio es una aplicación web que permite simular operaciones entre **pesos colombianos (COP), dólares estadounidenses (USD) y euros (EUR)**. También permite registrar clientes, consultar sus datos y revisar resúmenes de las transacciones realizadas.
+
+La aplicación está construida con HTML, CSS y JavaScript, sin necesidad de instalar dependencias para utilizarla.
 
 ## 🚀 Funcionalidades
 
-- **Simulador de cambio de moneda:**
-  - Pesos colombianos a dólares.
-  - Dólares a pesos colombianos.
-  - Pesos colombianos a euros.
-  - Euros a pesos colombianos.
-- **Registro de clientes:** cédula, nombre, fecha de nacimiento, trabajo, dirección y celular.
-- **Consulta de transacciones:** resúmenes diarios y mensuales por moneda.
-- **Almacenamiento local:** conserva los datos utilizando `localStorage`.
+### 💱 Simulador de divisas
+- Conversión de COP a USD y de USD a COP.
+- Conversión de COP a EUR y de EUR a COP.
+- Visualización del valor de referencia y de la tasa aplicada a cada operación.
+- Simulación previa antes de registrar una transacción.
 
-## ⚙️ Restricciones del sistema
+### 👥 Gestión de clientes
+- Registro de datos personales y de contacto.
+- Búsqueda de clientes mediante su número de cédula.
+- Consulta de los clientes registrados.
 
-- Solo se aceptan transacciones de personas mayores de edad.
-- Las operaciones están habilitadas de lunes a viernes, de 8:00 a. m. a 2:00 p. m.
-- Límites de cambio por persona al día:
-  - $30.000.000 COP.
-  - $3.000 USD.
-  - €2.000 EUR.
+### 📊 Gestión de transacciones
+- Registro de operaciones realizadas.
+- Validación de las reglas del negocio antes de confirmar una transacción.
+- Consulta de resúmenes diarios y mensuales, agrupados por moneda y tipo de operación.
 
-## 🛠️ Tecnologías utilizadas
+## ⚙️ Reglas del negocio
+
+El sistema aplica las siguientes restricciones al registrar operaciones:
+
+| Regla | Condición |
+|---|---|
+| Edad | Solo se permiten clientes mayores de edad. |
+| Días de atención | De lunes a viernes. |
+| Horario | De 8:00 a. m. a 2:00 p. m. |
+| Límite diario en COP | $30.000.000 por persona. |
+| Límite diario en USD | 3.000 USD por persona. |
+| Límite diario en EUR | 2.000 EUR por persona. |
+
+La aplicación también incluye una opción para ignorar el horario durante las pruebas.
+
+## 🛠️ Tecnologías
 
 | Tecnología | Uso |
 |---|---|
-| HTML5 | Estructura de la aplicación |
-| CSS3 | Diseño y estilos visuales |
-| JavaScript | Lógica y funcionalidades |
-| LocalStorage | Almacenamiento local de datos |
+| HTML5 | Estructura y contenido de la aplicación. |
+| CSS3 | Presentación y estilos visuales. |
+| JavaScript | Lógica, validaciones y operaciones. |
+| LocalStorage | Persistencia local de clientes y transacciones. |
+| ExchangeRate-API (Open ER API) | Consulta de tasas de referencia desde internet. |
+| GitHub Pages | Publicación de la aplicación web. |
 
 ## 📂 Estructura del proyecto
 
 ```text
 proyecto-casa-de-cambio/
-│
 ├── index.html
 ├── README.md
-│
 ├── css/
 │   └── estilos.css
-│
 ├── js/
 │   └── script.js
-│
 ├── assets/
 │   └── imagenes/
 │       ├── Clientes.png
 │       ├── Simulador.png
 │       └── Transacciones.png
-│
 └── documentos/
     └── Proyecto_4_Casa_de_Cambio.pdf
 ```
 
-## 💻 Cómo ejecutar el proyecto
+## 💻 Ejecución
 
-**Opción 1. Página publicada**
+### Opción 1. Aplicación publicada
 
-Ingresa directamente desde el siguiente enlace:
+Accede desde GitHub Pages:
 
-[🌐 Abrir Casa de Cambio](https://jhamesthread.github.io/proyecto-casa-de-cambio/)
+**[🌐 Abrir Casa de Cambio](https://jhamesthread.github.io/proyecto-casa-de-cambio/)**
 
-**Opción 2. Ejecución local**
+### Opción 2. Ejecución local
 
-1. Descarga o clona este repositorio.
-2. Conserva la estructura de carpetas del proyecto.
-3. Abre el archivo `index.html` en tu navegador.
+1. Clona el repositorio:
 
-## 🖼️ Capturas del proyecto
+   ```bash
+   git clone https://github.com/jhamesthread/proyecto-casa-de-cambio.git
+   ```
 
-### Módulo de clientes
+2. Abre la carpeta del proyecto.
+3. Ejecuta el archivo `index.html` en un navegador web.
 
-![Módulo de clientes](assets/imagenes/Clientes.png)
+## 🖼️ Capturas
 
 ### Simulador de cambio
 
-![Simulador de cambio](assets/imagenes/Simulador.png)
+![Captura del simulador](assets/imagenes/Simulador.png)
 
-### Módulo de transacciones
+### Gestión de clientes
 
-![Módulo de transacciones](assets/imagenes/Transacciones.png)
+![Captura del módulo de clientes](assets/imagenes/Clientes.png)
+
+### Resumen de transacciones
+
+![Captura del módulo de transacciones](assets/imagenes/Transacciones.png)
 
 ## 📄 Documentación
 
-Consulta la documentación completa del proyecto en el siguiente archivo:
+El documento del proyecto contiene información complementaria sobre su desarrollo y funcionamiento.
 
-📘 **[Ver documentación del proyecto (PDF)](documentos/Proyecto_4_Casa_de_Cambio.pdf)**
+📘 **[Consultar documentación en PDF](documentos/Proyecto_4_Casa_de_Cambio.pdf)**
 
-## 🧪 Pruebas realizadas
+## 🧪 Pruebas
 
-| Prueba | Resultado esperado |
+Algunos escenarios contemplados para comprobar las validaciones del sistema:
+
+| Escenario | Comportamiento esperado |
 |---|---|
-| Registrar un cliente menor de edad | El sistema impide su registro. |
-| Realizar un cambio fuera del horario | El sistema informa el horario permitido. |
-| Cambiar más de 3.000 USD | El sistema advierte que se supera el límite. |
-| Ingresar una cédula no registrada | El sistema solicita registrar primero al cliente. |
+| Registrar una persona menor de edad | El sistema rechaza el registro. |
+| Intentar una transacción fuera del horario | El sistema informa los días y horas de atención. |
+| Superar el límite diario de una moneda | El sistema impide la operación. |
+| Realizar una operación con una cédula no registrada | El sistema solicita registrar primero al cliente. |
+| Consultar un periodo sin transacciones | El sistema informa que no hay operaciones para ese periodo. |
 
-## ⚠️ Consideraciones
+## ⚠️ Almacenamiento y tasas
 
-- Los datos se almacenan localmente en el navegador mediante `localStorage`.
-- La información no se sincroniza automáticamente entre diferentes dispositivos o navegadores.
-- Si se eliminan los datos del navegador, se pueden perder los registros almacenados.
+- Los clientes y las transacciones se guardan en el almacenamiento local del navegador mediante `localStorage`.
+- Los datos no se sincronizan entre dispositivos ni navegadores.
+- Borrar los datos del navegador puede eliminar los registros guardados por la aplicación.
+- Las tasas iniciales de COP/USD y COP/EUR son valores de ejemplo. Al disponer de conexión, la aplicación intenta consultar tasas de referencia desde una API externa.
+- Si la consulta externa falla, se conservan los valores de ejemplo. Por eso, las tasas deben verificarse y actualizarse antes de utilizar el simulador con valores reales.
+- Las tasas consultadas son referencias de conversión y no deben interpretarse automáticamente como una tasa oficial o una cotización comercial garantizada.
 
 ## 👨‍💻 Autor
 
-Desarrollado por [@jhamesthread](https://github.com/jhamesthread).
+Desarrollado por **[@jhamesthread](https://github.com/jhamesthread)**.
 
 ---
 
