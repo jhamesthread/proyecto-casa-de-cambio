@@ -41,7 +41,7 @@ function escaparHTML(valor) {
 }
 
 function fechaValida(fecha) {
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(fecha)) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
     return false;
   }
   var partes = fecha.split("-");
@@ -336,12 +336,12 @@ function guardarCliente() {
     return;
   }
 
-  if (!/^\\d+$/.test(cedula)) {
+  if (!/^\d+$/.test(cedula)) {
     mensaje("mensajeCli", "La cédula debe tener solo números.", "error");
     return;
   }
 
-  if (!/^\\d{10}$/.test(celular)) {
+  if (!/^\d{10}$/.test(celular)) {
     mensaje("mensajeCli", "El celular debe tener 10 dígitos.", "error");
     return;
   }
