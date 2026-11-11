@@ -58,6 +58,10 @@ Opción 2: descargar los tres archivos, dejarlos en la misma carpeta y abrir `in
 ### Clientes
 ![Clientes](Clientes.png)
 
+## Informe
+
+[Ver informe del Proyecto 4 (PDF)](Proyecto_4_Casa_de_Cambio.pdf)
+
 ## Pruebas
 
 | Prueba | Resultado esperado |
