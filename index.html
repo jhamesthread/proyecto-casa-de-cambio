@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa de Cambio</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<div class="menu">
+  <div class="titulo">
+    <h2>Casa de Cambio</h2>
+    <p>Proyecto 4<br>Escuela Tecnológica Instituto Técnico Central</p>
+  </div>
+  <button id="bSimulador" class="activo" onclick="verPagina('pSimulador', 'bSimulador')">Simulador</button>
+  <button id="bClientes" onclick="verPagina('pClientes', 'bClientes')">Clientes</button>
+  <button id="bResumenes" onclick="verPagina('pResumenes', 'bResumenes')">Resúmenes</button>
+</div>
+
+<div class="contenido">
+
+  <div id="pSimulador" class="pagina" style="display:block">
+    <h1>Simulador y transacciones</h1>
+
+    <div class="caja">
+      <h3>Tasa representativa del momento (COP)</h3>
+      <div class="campos">
+        <div>
+          <label>1 Dólar = ? pesos</label>
+          <input type="number" id="tasaDolar" value="3183" step="0.01" oninput="mostrarTasas()">
+        </div>
+        <div>
+          <label>1 Euro = ? pesos</label>
+          <input type="number" id="tasaEuro" value="3700" step="0.01" oninput="mostrarTasas()">
+        </div>
+      </div>
+      <p class="nota" id="infoTasas"></p>
+      <p class="nota" id="notaTasas">Estos valores son de ejemplo, se deben cambiar por la tasa del día.</p>
+    </div>
+
+    <div class="caja">
+      <h3>Operación</h3>
+      <div class="campos">
+        <div>
+          <label>Tipo de cambio</label>
+          <select id="tipo">
+            <option value="1">Pesos colombianos a Dólares</option>
+            <option value="2">Dólares a Pesos colombianos</option>
+            <option value="3">Pesos colombianos a Euros</option>
+            <option value="4">Euros a Pesos colombianos</option>
+          </select>
+        </div>
+        <div>
+          <label>Monto a cambiar</label>
+          <input type="number" id="monto" min="0" step="0.01">
+        </div>
+        <div>
+          <label>Cédula del cliente</label>
+          <input type="text" id="cedulaOp">
+        </div>
+      </div>
+      <p class="nota">
+        <input type="checkbox" id="ignorar"> Ignorar horario (solo para pruebas)
+      </p>
+      <button class="boton" onclick="simular()">Simular</button>
+      <button class="boton verde" onclick="hacerTransaccion()">Realizar transacción</button>
+      <div id="resultado" class="resultado"></div>
+      <div id="mensajeOp" class="mensaje"></div>
+    </div>
+
+    <div class="caja">
+      <h3>Restricciones</h3>
+      <ul>
+        <li>Solo mayores de edad</li>
+        <li>Solo de lunes a viernes de 8:00 a.m. a 2:00 p.m.</li>
+        <li>Límites por persona: 30.000.000 de pesos, 3000 dólares y 2000 euros</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="pClientes" class="pagina">
+    <h1>Clientes</h1>
+
+    <div class="caja">
+      <h3>Datos del cliente</h3>
+      <div class="campos">
+        <div>
+          <label>Cédula</label>
+          <input type="text" id="cedula">
+        </div>
+        <div>
+          <label>Nombre</label>
+          <input type="text" id="nombre">
+        </div>
+        <div>
+          <label>Fecha de nacimiento</label>
+          <input type="date" id="nacimiento">
+        </div>
+        <div>
+          <label>Trabajo</label>
+          <input type="text" id="trabajo">
+        </div>
+        <div>
+          <label>Dirección</label>
+          <input type="text" id="direccion">
+        </div>
+        <div>
+          <label>Celular (10 dígitos)</label>
+          <input type="text" id="celular">
+        </div>
+      </div>
+      <button class="boton" onclick="guardarCliente()">Guardar cliente</button>
+      <button class="boton gris" onclick="buscarCliente()">Buscar por cédula</button>
+      <button class="boton gris" onclick="limpiarCampos()">Limpiar</button>
+      <div id="mensajeCli" class="mensaje"></div>
+    </div>
+
+    <div class="caja">
+      <h3>Lista de clientes</h3>
+      <table id="tablaClientes"></table>
+    </div>
+  </div>
+
+  <div id="pResumenes" class="pagina">
+    <h1>Resúmenes</h1>
+
+    <div class="caja">
+      <h3>Resumen de transacciones por moneda</h3>
+      <div class="campos">
+        <div>
+          <label>Tipo de resumen</label>
+          <select id="tipoResumen" onchange="cambiarPeriodo()">
+            <option value="diario">Diario</option>
+            <option value="mensual">Mensual</option>
+          </select>
+        </div>
+        <div>
+          <label>Periodo</label>
+          <input type="date" id="periodo">
+        </div>
+      </div>
+      <button class="boton" onclick="resumen()">Consultar</button>
+      <div id="mensajeRes" class="mensaje"></div>
+    </div>
+
+    <div class="caja">
+      <table id="tablaResumen"></table>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
