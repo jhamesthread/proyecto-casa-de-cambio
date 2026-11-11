@@ -317,7 +317,10 @@ function hacerTransaccion() {
     tasa: c.tasa
   };
   transacciones.push(transaccion);
-  guardar();
+  if (!guardar()) {
+    transacciones.pop();
+    return;
+  }
 
   document.getElementById("monto").value = "";
   mensaje("mensajeOp", "Transacción registrada correctamente.", "bien");
@@ -359,6 +362,7 @@ function guardarCliente() {
     direccion: direccion,
     celular: celular
   };
+  var clientesAnteriores = JSON.stringify(clientes);
 
   var existe = false;
   for (var i = 0; i < clientes.length; i++) {
@@ -371,7 +375,11 @@ function guardarCliente() {
     clientes.push(cliente);
   }
 
-  guardar();
+  if (!guardar()) {
+    clientes = JSON.parse(clientesAnteriores);
+    mostrarClientes();
+    return;
+  }
   mostrarClientes();
   limpiarCampos();
   mensaje("mensajeCli", "Cliente guardado correctamente.", "bien");
