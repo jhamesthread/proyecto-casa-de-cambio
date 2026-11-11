@@ -45,6 +45,17 @@ Los datos se guardan en el navegador (localStorage).
 1. Descargar los tres archivos y dejarlos en la misma carpeta.
 2. Abrir `index.html` en el navegador.
 
+## Capturas
+
+### Simulador
+![Simulador](Simulador.png)
+
+### Transacción realizada
+![Transacción](Transacciones.png)
+
+### Clientes
+![Clientes](Clientes.png)
+
 ## Integrantes
 
 - Jhames Ortiz Gutiérrez
