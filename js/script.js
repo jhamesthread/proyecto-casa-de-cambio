@@ -1,12 +1,14 @@
-var clientes = [];
-var transacciones = [];
+function cargarDatos(clave) {
+  try {
+    var datos = JSON.parse(localStorage.getItem(clave));
+    return Array.isArray(datos) ? datos : [];
+  } catch (error) {
+    return [];
+  }
+}
 
-if (localStorage.getItem("clientes") != null) {
-  clientes = JSON.parse(localStorage.getItem("clientes"));
-}
-if (localStorage.getItem("transacciones") != null) {
-  transacciones = JSON.parse(localStorage.getItem("transacciones"));
-}
+var clientes = cargarDatos("clientes");
+var transacciones = cargarDatos("transacciones");
 
 var limitePesos = 30000000;
 var limiteDolares = 3000;
@@ -15,8 +17,38 @@ var limiteEuros = 2000;
 var margen = 200;
 
 function guardar() {
-  localStorage.setItem("clientes", JSON.stringify(clientes));
-  localStorage.setItem("transacciones", JSON.stringify(transacciones));
+  try {
+    localStorage.setItem("clientes", JSON.stringify(clientes));
+    localStorage.setItem("transacciones", JSON.stringify(transacciones));
+    return true;
+  } catch (error) {
+    alert("No fue posible guardar los datos en este navegador. Revise el espacio disponible.");
+    return false;
+  }
+}
+
+function escaparHTML(valor) {
+  return String(valor).replace(/[&<>"']/g, function (caracter) {
+    var entidades = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    };
+    return entidades[caracter];
+  });
+}
+
+function fechaValida(fecha) {
+  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(fecha)) {
+    return false;
+  }
+  var partes = fecha.split("-");
+  var fechaIngresada = new Date(Number(partes[0]), Number(partes[1]) - 1, Number(partes[2]));
+  return fechaIngresada.getFullYear() == Number(partes[0]) &&
+    fechaIngresada.getMonth() == Number(partes[1]) - 1 &&
+    fechaIngresada.getDate() == Number(partes[2]);
 }
 
 function verPagina(pagina, boton) {
@@ -42,12 +74,16 @@ function fechaHoy() {
 }
 
 function edad(fecha) {
+  if (!fechaValida(fecha)) {
+    return -1;
+  }
+  var partes = fecha.split("-");
   var hoy = new Date();
-  var nac = new Date(fecha);
-  var e = hoy.getFullYear() - nac.getFullYear();
-  if (hoy.getMonth() < nac.getMonth()) {
-    e = e - 1;
-  } else if (hoy.getMonth() == nac.getMonth() && hoy.getDate() < nac.getDate()) {
+  var anio = Number(partes[0]);
+  var mes = Number(partes[1]) - 1;
+  var dia = Number(partes[2]);
+  var e = hoy.getFullYear() - anio;
+  if (hoy.getMonth() < mes || (hoy.getMonth() == mes && hoy.getDate() < dia)) {
     e = e - 1;
   }
   return e;
@@ -84,28 +120,48 @@ function limiteDe(moneda) {
 function mostrarTasas() {
   var dolar = Number(document.getElementById("tasaDolar").value);
   var euro = Number(document.getElementById("tasaEuro").value);
+  var info = document.getElementById("infoTasas");
 
-  document.getElementById("infoTasas").innerHTML =
+  if (!isFinite(dolar) || !isFinite(euro) || dolar <= margen || euro <= margen) {
+    info.textContent = "Ingrese tasas mayores al margen de la casa de cambio ($" + margen + " COP).";
+    return;
+  }
+
+  info.innerHTML =
     "Dólar: la casa compra a $" + formato(dolar - margen) + " y vende a $" + formato(dolar + margen) + "<br>" +
     "Euro: la casa compra a $" + formato(euro - margen) + " y vende a $" + formato(euro + margen);
 }
 
 fetch("https://open.er-api.com/v6/latest/USD")
-  .then(function (respuesta) { return respuesta.json(); })
+  .then(function (respuesta) {
+    if (!respuesta.ok) {
+      throw new Error("No fue posible consultar las tasas.");
+    }
+    return respuesta.json();
+  })
   .then(function (datos) {
-    document.getElementById("tasaDolar").value = datos.rates.COP.toFixed(2);
-    document.getElementById("tasaEuro").value = (datos.rates.COP / datos.rates.EUR).toFixed(2);
-    document.getElementById("notaTasas").innerHTML = "Tasas actualizadas desde internet.";
+    var cop = Number(datos && datos.rates && datos.rates.COP);
+    var eur = Number(datos && datos.rates && datos.rates.EUR);
+
+    if (!isFinite(cop) || !isFinite(eur) || cop <= 0 || eur <= 0) {
+      throw new Error("La respuesta de tasas no es válida.");
+    }
+
+    document.getElementById("tasaDolar").value = cop.toFixed(2);
+    document.getElementById("tasaEuro").value = (cop / eur).toFixed(2);
+    document.getElementById("notaTasas").textContent = "Tasas de referencia actualizadas desde internet. Verifique su vigencia antes de operar.";
     mostrarTasas();
   })
   .catch(function () {
+    document.getElementById("notaTasas").textContent = "No fue posible actualizar las tasas. Se conservan los valores ingresados o de ejemplo.";
+    mostrarTasas();
   });
 
 function calcular() {
   var tipo = Number(document.getElementById("tipo").value);
   var monto = Number(document.getElementById("monto").value);
 
-  if (monto <= 0) {
+  if (!isFinite(monto) || monto <= 0) {
     mensaje("mensajeOp", "Escriba un monto mayor a 0.", "error");
     return null;
   }
@@ -117,7 +173,7 @@ function calcular() {
   if (tipo == 3 || tipo == 4) {
     referencia = Number(document.getElementById("tasaEuro").value);
   }
-  if (referencia <= 0) {
+  if (!isFinite(referencia) || referencia <= margen) {
     mensaje("mensajeOp", "Escriba una tasa válida.", "error");
     return null;
   }
@@ -204,6 +260,10 @@ function hacerTransaccion() {
   }
 
   var cedula = document.getElementById("cedulaOp").value.trim();
+  if (cedula == "") {
+    mensaje("mensajeOp", "Ingrese la cédula del cliente.", "error");
+    return;
+  }
   var cliente = null;
   for (var i = 0; i < clientes.length; i++) {
     if (clientes[i].cedula == cedula) {
@@ -276,17 +336,17 @@ function guardarCliente() {
     return;
   }
 
-  if (isNaN(cedula)) {
+  if (!/^\\d+$/.test(cedula)) {
     mensaje("mensajeCli", "La cédula debe tener solo números.", "error");
     return;
   }
 
-  if (isNaN(celular) || celular.length != 10) {
+  if (!/^\\d{10}$/.test(celular)) {
     mensaje("mensajeCli", "El celular debe tener 10 dígitos.", "error");
     return;
   }
 
-  if (edad(nacimiento) < 18) {
+  if (!fechaValida(nacimiento) || edad(nacimiento) < 18) {
     mensaje("mensajeCli", "Solo se pueden registrar personas mayores de edad.", "error");
     return;
   }
@@ -346,9 +406,9 @@ function limpiarCampos() {
 function mostrarClientes() {
   var tabla = "<tr><th>Cédula</th><th>Nombre</th><th>Nacimiento</th><th>Trabajo</th><th>Dirección</th><th>Celular</th></tr>";
   for (var i = 0; i < clientes.length; i++) {
-    tabla = tabla + "<tr><td>" + clientes[i].cedula + "</td><td>" + clientes[i].nombre + "</td><td>" +
-      clientes[i].nacimiento + "</td><td>" + clientes[i].trabajo + "</td><td>" +
-      clientes[i].direccion + "</td><td>" + clientes[i].celular + "</td></tr>";
+    tabla = tabla + "<tr><td>" + escaparHTML(clientes[i].cedula) + "</td><td>" + escaparHTML(clientes[i].nombre) + "</td><td>" +
+      escaparHTML(clientes[i].nacimiento) + "</td><td>" + escaparHTML(clientes[i].trabajo) + "</td><td>" +
+      escaparHTML(clientes[i].direccion) + "</td><td>" + escaparHTML(clientes[i].celular) + "</td></tr>";
   }
   document.getElementById("tablaClientes").innerHTML = tabla;
 }
