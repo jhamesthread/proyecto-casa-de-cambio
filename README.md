@@ -160,7 +160,7 @@ Algunos escenarios contemplados para comprobar las validaciones del sistema:
 
 ## 👨‍💻 Autor
 
-Desarrollado por **[@jhamesthread](https://github.com/jhamesthread)**.
+Desarrollado por **[@jhamesthread](https://github.com/jhamesthread) y [@alej006-tech] (https://github.com/alej006-tech)**.
 
 ---
 
