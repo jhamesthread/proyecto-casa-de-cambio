@@ -135,7 +135,7 @@ Accede desde GitHub Pages:
 
 El documento del proyecto contiene información complementaria sobre su desarrollo y funcionamiento.
 
-📘 **[Consultar documentación en PDF](documentos/Proyecto_4_Casa_de_Cambio.pdf)**
+📘 **[Consultar documentación en PDF](DOC-20261123-WA0003.pdf)**
 
 ## 🧪 Pruebas
 
