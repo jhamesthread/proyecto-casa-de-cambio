@@ -137,6 +137,8 @@ El documento del proyecto contiene información complementaria sobre su desarrol
 
 📘 **[Consultar documentación en PDF](DOC-20261123-WA0003.pdf)**
 
+📘 **[Consultar documentación en inglés en PDF](Project_4_Currency_Exchange_House_System.pdf)**
+
 ## 🧪 Pruebas
 
 Algunos escenarios contemplados para comprobar las validaciones del sistema:
